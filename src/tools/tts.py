@@ -104,8 +104,8 @@ class VolcengineTTS:
         try:
             logger.debug(f"Sending TTS request for text: {text[:50]}...")
             response = requests.post(
-                self.api_url, json.dumps(request_json), headers=self.header
-            )
+                self.api_url, json.dumps(request_json), headers=self.header, 
+            timeout=60)
             response_json = response.json()
 
             if response.status_code != 200:
